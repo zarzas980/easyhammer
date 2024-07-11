@@ -1,0 +1,154 @@
+.App {
+  text-align: center;
+  background-color: #010409;
+  color: #EEEEEE;
+}
+
+.sec-level {
+  text-align: center !important;
+  background-color: #0d1117 !important;
+  color: #EEEEEE !important;
+}
+
+.third-level {
+  text-align: center;
+  background-color: #1c2129;
+  color: #EEEEEE;
+}
+
+.accent {
+  text-align: center;
+  background-color: #00ADB5;
+  color: #010409;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #00ADB5 !important;
+  color: #010409 !important;
+  border-color: #00ADB5 !important;
+}
+
+/*This is same as primary*/
+/* .btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:visited {
+  background-color: #00ADB5 !important;
+  color: #010409 !important;
+  border-color: #00ADB5 !important;
+} */
+
+.btn-outline-primary {
+  border-color: #00ADB5 !important;
+  color: #00ADB5 !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:visited {
+  border-color: #00ADB5 !important;
+  background-color: #0d1117 !important;
+  color: #00ADB5 !important;
+}
+
+.form-control, .form-control:active, .form-control:focus, .form-control:focus:active {
+  background-color: #010409 !important;
+  color: #EEEEEE !important;
+  border-color: #292f3b !important;
+}
+
+.form-select, .form-select:active, .form-select:focus, .form-select:focus:active {
+  background-color: #010409 !important;
+  color: #EEEEEE !important;
+  border-color: #292f3b !important;
+}
+
+.modal-header, .modal-body, .modal-footer { 
+  background: #1c2129 !important;
+  color: #EEEEEE !important;
+  border-color: #292f3b !important;
+}
+
+.modal-content{
+  background-color: transparent;
+  border:none !important;
+}
+
+/* This was to give a different style to weapon input fields using the light-input class
+.form-control.light-input, .form-control:active.light-input, .form-control:focus.light-input, .form-control:focus:active.light-input {
+  background-color: #010409 !important;
+  color: #EEEEEE !important;
+  border-color: #292f3b !important;
+}
+
+.form-select, .form-select:active, .form-select:focus, .form-select:focus:active {
+  background-color: #010409 !important;
+  color: #EEEEEE !important;
+  border-color: #1c2129 !important;
+} */
+
+/* .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #010409!important;
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff , 0 0 0 0.2rem rgba(0, 255, 0, 0.25) !important;
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25) !important;
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: #C8FFC8 !important;
+} */
+
+input[type=checkbox]{
+  accent-color: green !important ;
+  background-color: #010409!important;
+  border-color: #292f3b !important;
+}
+
+
+
+/* 
+212121
+323232
+0D7377
+14FFEC 
+*/
+
+/* 
+222831
+393E46
+00ADB5
+EEEEEE
+ */
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+.App-header {
+  background-color: #F6F5F2;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

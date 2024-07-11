@@ -1,0 +1,18 @@
+.footer-list {
+    display: inline-block;
+    margin: 0px 5px 0px 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
+.footer {
+  text-align: left;
+}
+
+.accent-text {
+  background-color: #0d1117;
+  color: #00ADB5;
+}
