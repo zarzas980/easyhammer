@@ -22,22 +22,22 @@ function GraphsContainer() {
                 <h3>{index+1} {weapons[index].name}</h3>  
                 <Row xs={1} md={2}>
                     <Col>
-                        <Graphs data={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
+                        <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
                     </Col>
                     <Col>
-                        <Graphs data={result.hitResults} stat = "Hits" label="Num of Hits"/>
+                        <Graphs result={result.hitResults} stat = "Hits" label="Num of Hits"/>
                     </Col>
                     <Col>
-                        <Graphs data={result.woundResults} stat = "Wounds" label="Num of Wounds"/>
+                        <Graphs result={result.woundResults} stat = "Wounds" label="Num of Wounds"/>
                     </Col>
                     <Col>
-                        <Graphs data={result.savesResults} stat = "Failed Saves" label="Num of Failed Saves"/>
+                        <Graphs result={result.savesResults} stat = "Failed Saves" label="Num of Failed Saves"/>
                     </Col>
                     <Col>
-                        <Graphs data={result.totalDamage} stat = "Damage" label="Total Damage"/>
+                        <Graphs result={result.totalDamage} stat = "Damage" label="Total Damage"/>
                     </Col>
                     <Col>
-                        <Graphs data={result.killedModels} stat = "Killed Models" label="Killed Models"/>
+                        <Graphs result={result.killedModels} stat = "Killed Models" label="Killed Models"/>
                     </Col>
                 </Row>
             </Col>

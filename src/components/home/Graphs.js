@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../css/App.css"
 
+import { Chart as ChartJS, defaults} from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 //https://www.youtube.com/watch?v=6q5d3Z1-5kQ
@@ -24,10 +25,10 @@ import { Bar } from "react-chartjs-2";
                         }
                     }}*/
 
-function Graphs({data,stat,label}) {
+function Graphs({result,stat,label}) {
 
-    const keys = Object.keys(data)
-    const values = Object.values(data)
+    const keys = Object.keys(result)
+    const values = Object.values(result)
 
     function getAverage(){
         let sum = 0

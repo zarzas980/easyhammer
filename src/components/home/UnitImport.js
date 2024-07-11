@@ -88,10 +88,7 @@ function UnitImport({show,onHide,rol,rolSetter, setErrors, setResults, resultsTe
     // Order the object by values alphabetically
     const orderedFactions = Object.fromEntries(
       Object.entries(factions).sort(([, a], [, b]) => a.localeCompare(b))
-    );
-    
-    console.log(orderedFactions);
-    
+    );  
     
     const units = factionData ? Object.keys(factionData) : [];
   
