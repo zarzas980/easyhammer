@@ -32,7 +32,18 @@ function GraphsAggregated({results,typeOfResult}) {
         labels = {...labels,...weaponResult[typeOfResult].data}
     })
     
-    const colors = ["#EEEEEE","#00ADB5"]
+    const colors = [
+        "#EEEEEE",  // light gray
+        "#00ADB5",  // cyan
+        "#FF6347",  // tomato
+        "#FFD700",  // gold
+        "#ADFF2F",  // green-yellow
+        "#FF69B4",  // hot pink
+        "#FFA500",  // orange
+        "#00FF7F",  // spring green
+        "#1E90FF",  // dodger blue
+        "#7CFC00",  // lawn green
+    ];
 
     const dataTemplate = {}
     Object.keys(labels).map(key => {
