@@ -1,57 +1,80 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../css/App.css"
 
-import { Chart as ChartJS, defaults} from "chart.js/auto";
+import { 
+    Chart as ChartJS,
+    defaults,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend
+} from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-
-//https://www.youtube.com/watch?v=6q5d3Z1-5kQ
-
-/*
-                    options = {{
-                        scales: {
-                            labels:{
-                                axis: 'x',
-                                type: 'linear',
-                                min: -0.5,
-                                offset: false,
-                                display: false,
-                                ticks: {
-                                    stepSize: 1
-                                }
-                            },
-                            y: {
-                                min: 0
-                            }
-                        }
-                    }}*/
+// ChartJS.register(
+//     defaults,
+//     CategoryScale,
+//     LinearScale,
+//     Title,
+//     Tooltip,
+//     Legend
+// )
 
 function Graphs({result,stat,label}) {
 
-    const keys = Object.keys(result)
-    const values = Object.values(result)
-
-    function getAverage(){
-        let sum = 0
-        for (let i=0; i<keys.length; i++){
-            sum += parseInt(keys[i])*parseInt(values[i])
-        }
-        return sum / 100000 //WARNING: this is also hardcoded in computeResults.js as maxIterations and computeWeapon()
-    }
+    const keys = Object.keys(result.data)
+    const values = Object.values(result.data)
 
     return (
         <>
             <div style={{width: "300px"}}>
-                <Bar data = {{
+                <Bar 
+                    data = {{
                         labels: keys,
                         datasets:[
                             {
                                 label: label,
-                                data: values
+                                data: values,
+                                backgroundColor: "#00ADB5",
                             },
                         ],
                     }}
+
+                    options = {{
+                        scales: {
+                            // xAxes: [{
+                            //     maxBarThickness: 10
+                            // }],
+                            // labels: {
+                            //     axis: 'x',
+                            //     type: 'linear',
+                            //     min: -0.5,
+                            //     offset: false,
+                            //     display: false,
+                            //     ticks: {
+                            //         stepSize: 1
+                            //     }
+                            // },
+                            // y: {
+                            //     beginAtZero: true
+                            // },
+                            // x: {
+                            //     beginAtZero: true,
+                            //     suggestedMin: 0
+                            // }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    title: function(value){return ""},
+                                    label: function(value){ 
+                                        return value.label+": " + value.raw.toFixed(2)+"%"}
+                                }
+                            }
+                        },
+                    }}
                 />
-                <p className="h6">Avg {stat}: {getAverage()}</p>
+                <p className="h6">Avg {stat}: {result.avg}</p>
             </div>
         </>
     )
