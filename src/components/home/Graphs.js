@@ -33,7 +33,7 @@ function Graphs({result,stat,label}) {
                         labels: keys,
                         datasets:[
                             {
-                                label: label,
+                                label: "Discrete",
                                 data: values,
                                 backgroundColor: "#00ADB5",
                                 maxBarThickness: 80,
@@ -42,28 +42,6 @@ function Graphs({result,stat,label}) {
                     }}
 
                     options = {{
-                        scales: {
-                            // xAxes: [{
-                            //     maxBarThickness: 10
-                            // }],
-                            // labels: {
-                            //     axis: 'x',
-                            //     type: 'linear',
-                            //     min: -0.5,
-                            //     offset: false,
-                            //     display: false,
-                            //     ticks: {
-                            //         stepSize: 1
-                            //     }
-                            // },
-                            // y: {
-                            //     beginAtZero: true
-                            // },
-                            // x: {
-                            //     beginAtZero: true,
-                            //     suggestedMin: 0
-                            // }
-                        },
                         plugins: {
                             tooltip: {
                                 callbacks: {
@@ -71,6 +49,10 @@ function Graphs({result,stat,label}) {
                                     label: function(value){ 
                                         return value.label+": " + value.raw.toFixed(2)+"%"}
                                 }
+                            },
+                            title: {
+                                display: true,
+                                text: label
                             }
                         },
                     }}
