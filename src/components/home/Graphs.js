@@ -36,6 +36,7 @@ function Graphs({result,stat,label}) {
                                 label: label,
                                 data: values,
                                 backgroundColor: "#00ADB5",
+                                maxBarThickness: 80,
                             },
                         ],
                     }}
