@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Attacker from "./Attacker"
 import Defender from "./Defender"
 import Hero from "./Hero"
-import GraphsContainer from "./GraphsContainer";
+import Results from "./Results";
 import Disclaimer from "./Disclaimer"
 
 import computeResults from "../../scripts/computeResults";
@@ -128,8 +128,8 @@ function Home(){
                     </Alert>}
                 </Col>       
             </Row>
-            <ResultsContext.Provider value={[weapons,results,triggerPlotResults]}>
-                <GraphsContainer></GraphsContainer>
+            <ResultsContext.Provider value={weapons}>
+                <Results results={results} triggerPlotResults={triggerPlotResults}/>
             </ResultsContext.Provider>
         </>
     )

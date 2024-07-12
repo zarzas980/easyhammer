@@ -10,42 +10,12 @@ import Graphs from "./Graphs";
 import { Container } from "react-bootstrap";
 
 
-function GraphsContainer() {
-    const [weapons,results,triggerPlotResults] = useContext(ResultsContext);
+function GraphsContainer({results}) {
 
-    if (!triggerPlotResults) {
-        return <Container fluid className="sec-level py-2 my-3">Waiting for user input...</Container>
-    }
+    const weapons = useContext(ResultsContext);
 
-    const maxIterations = 100000; //WARNING: this is also hardcoded in computeResults.js as maxIterations and computeWeapon()
-
-    function prepareSingleResult(result){
-        const preparedResultObject = {}
-            let sum = 0
-            for (let [key,value] of Object.entries(result)) {
-                sum += parseInt(key)*parseInt(value)
-                preparedResultObject[parseInt(key)] = value*100/maxIterations
-            }
-        return {avg: sum / maxIterations, data: preparedResultObject}
-    }
-
-    function prepareResults(){
-        const preparedResultsArray = []
-        results.map((weaponResult) => {
-            const preparedWeaponResult = {}
-            //These are attackResults, hitResults, etc
-            for (let [typeOfResult,value] of Object.entries(weaponResult)) {
-                preparedWeaponResult[typeOfResult] = prepareSingleResult(value)
-            }
-            preparedResultsArray.push(preparedWeaponResult)
-        })
-        return preparedResultsArray
-    }
-
-    const preparedResults = prepareResults()
-
-    const renderResults = preparedResults.map((result,index) => 
-        <Container key={index} className="mb-2 sec-level">
+    const renderResults = results.map((result,index) => 
+        <Container fluid key={index} className="mb-2 sec-level">
             <Col>
                 <h4>{index+1} {weapons[index].name}</h4>  
                 <Row xs={1} md={2}>
@@ -73,7 +43,7 @@ function GraphsContainer() {
     )
 
     return (
-        <Container className="my-3">  
+        <Container fluid className="my-3">  
             <Row xs={1} xl={2}>
                 {renderResults}
             </Row>

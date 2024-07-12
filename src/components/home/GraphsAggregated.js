@@ -11,6 +11,8 @@ import {
     Legend
 } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import { useContext } from "react";
+import { ResultsContext } from "./Home";
 // ChartJS.register(
 //     defaults,
 //     CategoryScale,
@@ -21,6 +23,8 @@ import { Bar } from "react-chartjs-2";
 // )
 
 function GraphsAggregated({results,typeOfResult}) {
+
+    const weapons = useContext(ResultsContext)
 
     let labels = {}
 
@@ -34,13 +38,14 @@ function GraphsAggregated({results,typeOfResult}) {
     results.map((weaponResult,index) => {
         datasets.push(
             {
-                label: "Nombre",
+                label: weapons[index].name,
                 data: Object.values(weaponResult[typeOfResult].data),
                 backgroundColor: colors[index]
             }
         )
     })
 
+    console.log("Datasets")
     console.log(datasets)
 
     return (
