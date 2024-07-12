@@ -45,9 +45,6 @@ function GraphsAggregated({results,typeOfResult}) {
         )
     })
 
-    console.log("Datasets")
-    console.log(datasets)
-
     return (
         <>
             <div style={{width: "300px"}}>

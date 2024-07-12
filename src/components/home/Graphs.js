@@ -22,19 +22,16 @@ import { Bar } from "react-chartjs-2";
 
 function Graphs({result,stat,label}) {
 
-    const keys = Object.keys(result.data)
-    const values = Object.values(result.data)
-
     return (
         <>
             <div style={{width: "300px"}}>
                 <Bar 
                     data = {{
-                        labels: keys,
+                        // labels: keys,
                         datasets:[
                             {
                                 label: "Discrete",
-                                data: values,
+                                data: result.data,
                                 backgroundColor: "#00ADB5",
                                 maxBarThickness: 80,
                             },
@@ -47,7 +44,8 @@ function Graphs({result,stat,label}) {
                                 callbacks: {
                                     title: function(value){return ""},
                                     label: function(value){ 
-                                        return value.label+": " + value.raw.toFixed(2)+"%"}
+                                        return value.label+": " + value.parsed.y.toFixed(2)+"%"
+                                    }
                                 }
                             },
                             title: {
