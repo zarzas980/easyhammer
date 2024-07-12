@@ -20,11 +20,11 @@ function Footer() {
                 </Col>
                 <Col xs={{span: "auto"}}>
                     <ul >
-                        <li class='footer-list list-unstyled'>
+                        <li className='footer-list list-unstyled'>
                             <img src = {discordIcon} alt="discord icon"/>
                             <span>Proce#3248</span>
                         </li>
-                        <li class='footer-list list-unstyled'>
+                        <li className='footer-list list-unstyled'>
                             <a href="https://github.com/zarzas980/easyhammer" target="_blank" rel="noopener noreferrer">
                                 <img src = {githubIcon} alt="github icon"/>
                                 GitHub

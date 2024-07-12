@@ -9,6 +9,7 @@ import { ResultsContext } from "./Home";
 import Graphs from "./Graphs";
 import { Container } from "react-bootstrap";
 
+
 function GraphsContainer() {
     const [weapons,results,triggerPlotResults] = useContext(ResultsContext);
 
@@ -25,7 +26,7 @@ function GraphsContainer() {
                 sum += parseInt(key)*parseInt(value)
                 preparedResultObject[parseInt(key)] = value*100/maxIterations
             }
-        return {ready: true, avg: sum / maxIterations, data: preparedResultObject}
+        return {avg: sum / maxIterations, data: preparedResultObject}
     }
 
     function prepareResults(){
