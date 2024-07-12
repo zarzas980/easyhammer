@@ -25,7 +25,7 @@ function Footer() {
                             <span>Proce#3248</span>
                         </li>
                         <li class='footer-list list-unstyled'>
-                            <a href="https://github.com/zarzas980" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/zarzas980/easyhammer" target="_blank" rel="noopener noreferrer">
                                 <img src = {githubIcon} alt="github icon"/>
                                 GitHub
                             </a>
