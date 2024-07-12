@@ -32,14 +32,22 @@ function GraphsAggregated({results,typeOfResult}) {
         labels = {...labels,...weaponResult[typeOfResult].data}
     })
     
-    const colors = ["#EEEEEE","#00ADB5","#000000"]
+    const colors = ["#EEEEEE","#00ADB5"]
+
+    const dataTemplate = {}
+    Object.keys(labels).map(key => {
+        dataTemplate[key] = null
+    })
 
     const datasets = []
     results.map((weaponResult,index) => {
+        //All datasets must have the same base or the data doesnt plot properly. Thats why we 
+        let clone = structuredClone(dataTemplate)
+        clone = {...clone,...weaponResult[typeOfResult].data}
         datasets.push(
             {
                 label: weapons[index].name,
-                data: Object.values(weaponResult[typeOfResult].data),
+                data: clone,
                 backgroundColor: colors[index]
             }
         )
@@ -50,7 +58,7 @@ function GraphsAggregated({results,typeOfResult}) {
             <div style={{width: "300px"}}>
                 <Bar 
                     data = {{
-                        labels: Object.keys(labels),
+                        // labels: Object.keys(labels),
                         datasets: datasets,
                     }}
 
@@ -69,7 +77,7 @@ function GraphsAggregated({results,typeOfResult}) {
                                 callbacks: {
                                     title: function(value){return ""},
                                     label: function(value){ 
-                                        return value.label+": " + value.raw.toFixed(2)+"%"}
+                                        return value.label+": " + value.parsed.y.toFixed(2)+"%"}
                                 }
                             },
                             title: {

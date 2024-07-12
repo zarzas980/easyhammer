@@ -27,7 +27,6 @@ function Graphs({result,stat,label}) {
             <div style={{width: "300px"}}>
                 <Bar 
                     data = {{
-                        // labels: keys,
                         datasets:[
                             {
                                 label: "Discrete",
