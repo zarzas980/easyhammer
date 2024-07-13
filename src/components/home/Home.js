@@ -121,7 +121,7 @@ function Home(){
                     <div style={{paddingBottom: "20px"}}></div>
                     <Disclaimer/>
                     <Container className="my-4">
-                        <Button variant ="primary" onClick={handleComputeResults}>Calculate Results!</Button>
+                        <Button variant ="primary" onClick={handleComputeResults}><b>GET RESULTS</b></Button>
                     </Container>
                     {showErrorMessage && <Alert variant="danger">
                         Ups! There is something wrong with the inputs!

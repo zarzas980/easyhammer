@@ -22,10 +22,14 @@
   color: #010409;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary, .btn-primary:active, .btn-primary:visited {
   background-color: #00ADB5 !important;
   color: #010409 !important;
-  border-color: #00ADB5 !important;
+  border-color: #00b3bd !important;
+}
+
+.btn-primary:hover {
+  background-color: #00cbd6!important;
 }
 
 /*This is same as primary*/
