@@ -3,6 +3,8 @@ import "../../css/App.css"
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 import React, {useContext} from "react";
 import { ResultsContext } from "./Home";
@@ -15,9 +17,7 @@ function GraphsContainer({results}) {
     const weapons = useContext(ResultsContext);
 
     const renderResults = results.map((result,index) => 
-        <Container fluid key={index} className="mb-2 sec-level">
-            <Col>
-                <h4>{index+1} {weapons[index].name}</h4>  
+            <Tab eventKey={index} title = {`${index+1} ${weapons[index].name}`}>
                 <Row xs={1} md={2}>
                     <Col>
                         <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
@@ -38,15 +38,19 @@ function GraphsContainer({results}) {
                         <Graphs result={result.killedModels} stat = "Killed Models" label="Killed Models"/>
                     </Col>
                 </Row>
-            </Col>
-        </Container>
+            </Tab>
     )
 
     return (
         <Container fluid className="my-3">  
-            <Row xs={1} xl={2}>
+            <Tabs
+            defaultActiveKey={0}
+            id="graphs-tabs"
+            className="mb-3"
+            fill
+            >
                 {renderResults}
-            </Row>
+            </Tabs>
         </Container>
     )
 }
