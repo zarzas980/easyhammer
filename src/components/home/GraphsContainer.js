@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../css/App.css"
+import "../../css/GraphsContainerBoth.css"
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
