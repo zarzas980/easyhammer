@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../css/App.css"
+import "../../css/GraphsBoth.css"
 
 import { 
     Chart as ChartJS,
@@ -67,7 +68,7 @@ function GraphsAggregated({results,typeOfResult}) {
 
     return (
         <>
-            <Container>
+            <Container className="graph-container" fluid>
                 <Bar 
                     data = {{
                         // labels: Object.keys(labels),
@@ -83,6 +84,7 @@ function GraphsAggregated({results,typeOfResult}) {
                                 stacked: true
                             }
                         },
+                        maintainAspectRatio: false,
                         responsive: true,
                         plugins: {
                             tooltip: {
