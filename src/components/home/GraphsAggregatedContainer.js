@@ -3,17 +3,19 @@ import "../../css/App.css"
 
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
 import React from "react";
-import GraphsAggregated from "./GraphsAggregated";
 import { Container } from "react-bootstrap";
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
+import GraphsAggregated from "./GraphsAggregated";
 
 
 function GraphsAggregatedContainer({results}) {
 
     return (
         <Container className="my-3 sec-level" fluid >  
-            <Row xs={1} xl={2}>
+            {/* <Row xs={1} xl={2}>
                 <h4>Aggregated Results</h4>  
                 <Row xs={1} md={2}>
                     <Col>
@@ -35,7 +37,74 @@ function GraphsAggregatedContainer({results}) {
                         <GraphsAggregated results={results} typeOfResult="killedModels"/>
                     </Col>
                 </Row>
-            </Row>
+            </Row> */}
+                <Tabs
+                    defaultActiveKey="totalDamageTab"
+                    id="graphs-aggregated-tabs"
+                    className="mb-3"
+                    fill
+                >
+                    <Tab eventKey="attackResultsTab" title="Attacks">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="attackResults"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                    <Tab eventKey="hitResultsTab" title="Hits">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="hitResults"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                    <Tab eventKey="woundResults-tab" title="Wounds">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="woundResults"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                    <Tab eventKey="savesResultsTab" title="Saves">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="savesResults"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                    <Tab eventKey="totalDamageTab" title="Damage">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="totalDamage"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                    <Tab eventKey="killedModelsTab" title="Kills">
+                        <Row>
+                            <Col>
+                                <span>Aqui van las medias</span>
+                            </Col>
+                            <Col>
+                                <GraphsAggregated results={results} typeOfResult="killedModels"/>
+                            </Col>
+                        </Row>
+                    </Tab>
+                </Tabs>
         </Container>
     )
 }

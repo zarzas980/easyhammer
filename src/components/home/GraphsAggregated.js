@@ -10,6 +10,7 @@ import {
     Tooltip,
     Legend
 } from "chart.js/auto";
+import { Container } from "react-bootstrap";
 import { Bar } from "react-chartjs-2";
 import { useContext } from "react";
 import { ResultsContext } from "./Home";
@@ -66,7 +67,7 @@ function GraphsAggregated({results,typeOfResult}) {
 
     return (
         <>
-            <div style={{width: "300px"}}>
+            <Container>
                 <Bar 
                     data = {{
                         // labels: Object.keys(labels),
@@ -99,7 +100,7 @@ function GraphsAggregated({results,typeOfResult}) {
                     }}
                 />
                 {/* <p className="h6">Avg {stat}: {result.avg}</p> */}
-            </div>
+            </Container>
         </>
     )
 }

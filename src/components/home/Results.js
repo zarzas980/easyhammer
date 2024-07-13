@@ -52,7 +52,7 @@ function Results({results,triggerPlotResults}) {
     return (
         <Container fluid className="my-3">
             {/*TODO: cambiar el número de columnas cuando todo este listo*/}
-            <Row xs={1} xl={1}>
+            <Row xs={1} xl={2}>
                 <Col>
                     <GraphsAggregatedContainer results = {preparedAggregatedResults}/>
                 </Col>
