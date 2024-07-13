@@ -17,7 +17,7 @@ function GraphsContainer({results}) {
     const weapons = useContext(ResultsContext);
 
     const renderResults = results.map((result,index) => 
-            <Tab eventKey={index} title = {`${index+1} ${weapons[index].name}`}>
+            <Tab key={index} eventKey={index} title = {`${index+1} ${weapons[index].name}`}>
                 <Row xs={1} md={2}>
                     <Col>
                         <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
@@ -42,7 +42,7 @@ function GraphsContainer({results}) {
     )
 
     return (
-        <Container fluid className="my-3">  
+        <Container fluid className="my-3 sec-level">  
             <Tabs
             defaultActiveKey={0}
             id="graphs-tabs"

@@ -15,31 +15,8 @@ function GraphsAggregatedContainer({results}) {
 
     return (
         <Container className="my-3 sec-level" fluid >  
-            {/* <Row xs={1} xl={2}>
-                <h4>Aggregated Results</h4>  
-                <Row xs={1} md={2}>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="attackResults"/>
-                    </Col>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="hitResults"/>
-                    </Col>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="woundResults"/>
-                    </Col>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="savesResults"/>
-                    </Col>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="totalDamage"/>
-                    </Col>
-                    <Col>
-                        <GraphsAggregated results={results} typeOfResult="killedModels"/>
-                    </Col>
-                </Row>
-            </Row> */}
                 <Tabs
-                    defaultActiveKey="totalDamageTab"
+                    defaultActiveKey="killedModelsTab"
                     id="graphs-aggregated-tabs"
                     className="mb-3"
                     fill
