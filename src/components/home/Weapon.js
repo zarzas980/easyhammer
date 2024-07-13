@@ -395,14 +395,14 @@ function Weapon ({index,setWeapons,value,numOfWeapons,weaponErrors,setErrors,set
               <span>{index}</span>
             </Col> */}
             <Col>
-              <Button className="accordionButton" variant="outline-primary" onClick={useAccordionButton(index)}>
+              <Button className="accordionButton" variant="outline-info" onClick={useAccordionButton(index)}>
                 {index+1} {value.name}
               </Button>
             </Col>
             <Col xs="auto">
-            <Button className="moveWeaponUpButton" variant="outline-primary" onClick={handleMoveWeaponUp} disabled={index<=0}><img src = {upArrowIcon} alt="move up button icon"/></Button>
-            <Button className="moveWeaponDownButton" variant="outline-primary" onClick={handleMoveWeaponDown} disabled={index>=numOfWeapons-1}><img src = {downArrowIcon} alt="move up button icon"/></Button>
-            <Button className="deleteWeaponButton" variant="outline-primary" onClick={handleDeleteWeapon}><img src = {closeIcon} alt="close button icon"/></Button>
+            <Button className="moveWeaponUpButton" variant="outline-info" onClick={handleMoveWeaponUp} disabled={index<=0}><img src = {upArrowIcon} alt="move up button icon"/></Button>
+            <Button className="moveWeaponDownButton" variant="outline-info" onClick={handleMoveWeaponDown} disabled={index>=numOfWeapons-1}><img src = {downArrowIcon} alt="move up button icon"/></Button>
+            <Button className="deleteWeaponButton" variant="outline-info" onClick={handleDeleteWeapon}><img src = {closeIcon} alt="close button icon"/></Button>
             </Col>
           </Row>
           <Row>

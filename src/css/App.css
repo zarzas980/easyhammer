@@ -42,6 +42,17 @@
 
 .btn-outline-primary:hover, .btn-outline-primary:visited {
   border-color: #00ADB5 !important;
+  background-color: #222933 !important;
+  color: #00ADB5 !important;
+}
+
+.btn-outline-info {
+  border-color: #00ADB5 !important;
+  color: #00ADB5 !important;
+}
+
+.btn-outline-info:hover, .btn-outline-info:visited {
+  border-color: #00ADB5 !important;
   background-color: #0d1117 !important;
   color: #00ADB5 !important;
 }
