@@ -23,7 +23,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                     fill
                 >
                     <Tab eventKey="attackResultsTab" title="Attacks">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
                                 <span>Average attacks: {totalAverages.avgAttacks.toFixed(2)}</span>
                             </Col>
@@ -33,7 +33,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="hitResultsTab" title="Hits">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
                                 <span>Average hits: {totalAverages.avgHits.toFixed(2)}</span>
                             </Col>
@@ -43,7 +43,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="woundResults-tab" title="Wounds">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
                                 <span>Average wounds: {totalAverages.avgWounds.toFixed(2)}</span>
                             </Col>
@@ -53,7 +53,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="savesResultsTab" title="Saves">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
                                 <span>Average failed saves: {totalAverages.avgFailedSaves.toFixed(2)}</span>
                             </Col>
@@ -63,10 +63,10 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="totalDamageTab" title="Damage">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
-                                <span>Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
-                                <span>*average damage </span>
+                                <span className="d-inline-block ">Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
+                                <span className="d-inline-block">*includes all damage before damage allocation and feel no pain.</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="totalDamage"/>
@@ -74,7 +74,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="killedModelsTab" title="Kills">
-                        <Row xs={1} xl={2} className="align-items-center">
+                        <Row xs={1} xl={2} className="align-items-center text-start">
                             <Col>
                                 <span>Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
                             </Col>
