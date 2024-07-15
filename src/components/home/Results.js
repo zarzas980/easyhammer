@@ -20,14 +20,19 @@ function Results({results,triggerPlotResults}) {
 
     //Turns discrete data into percentage
     function prepareSingleResult(result,maxIterations){
-        const preparedResultObject = {}
+        const preparedResults = {}
+        let cumulativeProbability = 100
+        const cumulativeResults = {}
             let sum = 0
             for (let [key,value] of Object.entries(result)) {
                 sum += parseInt(key)*parseInt(value)
-                preparedResultObject[parseInt(key)] = value*100/maxIterations
+                const prob = value*100/maxIterations
+                preparedResults[parseInt(key)] = prob
+                cumulativeResults[parseInt(key)] = cumulativeProbability;
+                cumulativeProbability -= prob
             }
             //TODO: media mal calculada
-        return {avg: sum / maxIterations, data: preparedResultObject}
+        return {avg: sum / maxIterations, data: preparedResults, cumulative: cumulativeResults}
     }
 
     //n is number of aggregated results
@@ -73,6 +78,7 @@ function Results({results,triggerPlotResults}) {
     //This could bring floating point errors?
     const preparedSingleResults = prepareResults(1)
     const preparedAggregatedResults = prepareResults(results.length)
+    console.log(preparedSingleResults)
     const totalAverages = getTotalAverages(preparedAggregatedResults)
 
 
