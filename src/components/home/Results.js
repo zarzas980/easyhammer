@@ -18,6 +18,7 @@ function Results({results,triggerPlotResults}) {
 
     const MAX_ITERATIONS = 100000; //WARNING: this is also hardcoded in computeResults.js as maxIterations and computeWeapon()
 
+    //Turns discrete data into percentage
     function prepareSingleResult(result,maxIterations){
         const preparedResultObject = {}
             let sum = 0
@@ -43,10 +44,36 @@ function Results({results,triggerPlotResults}) {
         return preparedResultsArray
     }
 
+    function getTotalAverages(preparedAggregatedResults) {
+        let avgAttacks = 0
+        let avgHits = 0
+        let avgWounds = 0
+        let avgFailedSaves = 0
+        let avgDamage = 0
+        let avgKilledModels = 0
+        preparedAggregatedResults.map((preparedResult)=>{
+            avgAttacks += preparedResult.attackResults.avg
+            avgHits += preparedResult.hitResults.avg
+            avgWounds += preparedResult.woundResults.avg
+            avgFailedSaves += preparedResult.savesResults.avg
+            avgDamage += preparedResult.totalDamage.avg
+            avgKilledModels += preparedResult.killedModels.avg
+        })
+        return {
+            avgAttacks: avgAttacks,
+            avgHits: avgHits,
+            avgWounds: avgWounds,
+            avgFailedSaves: avgFailedSaves,
+            avgDamage: avgDamage,
+            avgKilledModels: avgKilledModels,
+        }
+    }
+
     //TODO: Instead of doing this an alternative could be getting the aggregated results by dividing by n.
     //This could bring floating point errors?
     const preparedSingleResults = prepareResults(1)
     const preparedAggregatedResults = prepareResults(results.length)
+    const totalAverages = getTotalAverages(preparedAggregatedResults)
 
 
     return (
@@ -54,7 +81,7 @@ function Results({results,triggerPlotResults}) {
             {/*TODO: cambiar el número de columnas cuando todo este listo*/}
             <Row xs={1} xl={2}>
                 <Col>
-                    <GraphsAggregatedContainer results = {preparedAggregatedResults}/>
+                    <GraphsAggregatedContainer results = {preparedAggregatedResults} totalAverages={totalAverages}/>
                 </Col>
                 <Col>
                     <GraphsContainer results = {preparedSingleResults}/>

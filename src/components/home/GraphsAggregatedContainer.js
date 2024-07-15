@@ -12,7 +12,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import GraphsAggregated from "./GraphsAggregated";
 
 
-function GraphsAggregatedContainer({results}) {
+function GraphsAggregatedContainer({results,totalAverages}) {
 
     return (
         <Container className="my-3 sec-level" fluid >  
@@ -23,9 +23,9 @@ function GraphsAggregatedContainer({results}) {
                     fill
                 >
                     <Tab eventKey="attackResultsTab" title="Attacks">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average attacks: {totalAverages.avgAttacks.toFixed(2)}</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="attackResults"/>
@@ -33,9 +33,9 @@ function GraphsAggregatedContainer({results}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="hitResultsTab" title="Hits">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average hits: {totalAverages.avgHits.toFixed(2)}</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="hitResults"/>
@@ -43,9 +43,9 @@ function GraphsAggregatedContainer({results}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="woundResults-tab" title="Wounds">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average wounds: {totalAverages.avgWounds.toFixed(2)}</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="woundResults"/>
@@ -53,9 +53,9 @@ function GraphsAggregatedContainer({results}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="savesResultsTab" title="Saves">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average failed saves: {totalAverages.avgFailedSaves.toFixed(2)}</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="savesResults"/>
@@ -63,9 +63,10 @@ function GraphsAggregatedContainer({results}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="totalDamageTab" title="Damage">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
+                                <span>*average damage </span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="totalDamage"/>
@@ -73,9 +74,9 @@ function GraphsAggregatedContainer({results}) {
                         </Row>
                     </Tab>
                     <Tab eventKey="killedModelsTab" title="Kills">
-                        <Row>
+                        <Row xs={1} xl={2} className="align-items-center">
                             <Col>
-                                <span>Aqui van las medias</span>
+                                <span>Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
                             </Col>
                             <Col>
                                 <GraphsAggregated results={results} typeOfResult="killedModels"/>
