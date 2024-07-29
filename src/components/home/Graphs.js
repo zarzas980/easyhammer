@@ -29,11 +29,22 @@ function Graphs({result,stat,label}) {
                     data = {{
                         datasets:[
                             {
+                                type: "bar",
                                 label: "Discrete",
                                 data: result.data,
                                 backgroundColor: "#00ADB5",
+                                yAxisID: "discrete-y",
                                 maxBarThickness: 80,
+                                order: 2
                             },
+                            {
+                                type: "line",
+                                label: "Cumulative",
+                                data: result.cumulative,
+                                borderColor: "#EEEEEE",
+                                yAxisID: "cumulative-y",
+                                order: 1
+                            }
                         ],
                     }}
 
@@ -43,6 +54,7 @@ function Graphs({result,stat,label}) {
                                 callbacks: {
                                     title: function(value){return ""},
                                     label: function(value){ 
+                                        console.log(value)
                                         return value.label+": " + value.parsed.y.toFixed(2)+"%"
                                     }
                                 }
@@ -50,8 +62,21 @@ function Graphs({result,stat,label}) {
                             title: {
                                 display: true,
                                 text: label
+                            },
+                        },
+                        scales: {
+                            "discrete-y": {
+                                position: "left",
+                            },
+                            "cumulative-y": {
+                                type: "linear",
+                                position: "right",
                             }
                         },
+                        interaction: {
+                            intersect: false,
+                            mode: "index",
+                        }
                     }}
                 />
                 <p className="h6">Avg {stat}: {result.avg}</p>

@@ -19,31 +19,33 @@ function GraphsContainer({results}) {
 
     const renderResults = results.map((result,index) => 
             <Tab key={index} eventKey={index} title = {`${index+1} ${weapons[index].name}`}>
-                <Row xs={1} md={2}>
-                    <Col>
-                        <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
-                    </Col>
-                    <Col>
-                        <Graphs result={result.hitResults} stat = "Hits" label="Num of Hits"/>
-                    </Col>
-                    <Col>
-                        <Graphs result={result.woundResults} stat = "Wounds" label="Num of Wounds"/>
-                    </Col>
-                    <Col>
-                        <Graphs result={result.savesResults} stat = "Failed Saves" label="Num of Failed Saves"/>
-                    </Col>
-                    <Col>
-                        <Graphs result={result.totalDamage} stat = "Damage" label="Total Damage"/>
-                    </Col>
-                    <Col>
-                        <Graphs result={result.killedModels} stat = "Killed Models" label="Killed Models"/>
-                    </Col>
-                </Row>
+                <Container>
+                    <Row xs={1} md={2}>
+                        <Col>
+                            <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
+                        </Col>
+                        <Col>
+                            <Graphs result={result.hitResults} stat = "Hits" label="Num of Hits"/>
+                        </Col>
+                        <Col>
+                            <Graphs result={result.woundResults} stat = "Wounds" label="Num of Wounds"/>
+                        </Col>
+                        <Col>
+                            <Graphs result={result.savesResults} stat = "Failed Saves" label="Num of Failed Saves"/>
+                        </Col>
+                        <Col>
+                            <Graphs result={result.totalDamage} stat = "Damage" label="Total Damage"/>
+                        </Col>
+                        <Col>
+                            <Graphs result={result.killedModels} stat = "Killed Models" label="Killed Models"/>
+                        </Col>
+                    </Row>
+                </Container>
             </Tab>
     )
 
     return (
-        <Container fluid className="my-3 sec-level">  
+        <Container fluid className="my-3 sec-level px-0">  
             <Tabs
             defaultActiveKey={0}
             id="graphs-tabs"

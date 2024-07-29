@@ -59,6 +59,7 @@ function GraphsAggregated({results,typeOfResult}) {
         clone = {...clone,...weaponResult[typeOfResult].data}
         datasets.push(
             {
+                type: "bar",
                 label: weapons[index].name,
                 data: clone,
                 backgroundColor: colors[index]
@@ -91,7 +92,12 @@ function GraphsAggregated({results,typeOfResult}) {
                                 callbacks: {
                                     title: function(value){return ""},
                                     label: function(value){ 
-                                        return value.label+": " + value.parsed.y.toFixed(2)+"%"}
+                                        if(value.parsed.y !== null){
+                                            return value.label+": " + value.parsed.y.toFixed(2)+"%"
+                                        }else{
+                                            return null
+                                        }
+                                    }
                                 }
                             },
                             title: {
@@ -99,6 +105,11 @@ function GraphsAggregated({results,typeOfResult}) {
                                 text: typeOfResult
                             }
                         },
+                        interaction: {
+                            intersect: false,
+                            mode: "nearest",
+                            axis: "x"
+                        }
                     }}
                 />
                 {/* <p className="h6">Avg {stat}: {result.avg}</p> */}
