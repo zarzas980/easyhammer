@@ -3,7 +3,7 @@ import "../../css/App.css"
 
 import { Container } from "react-bootstrap";
 
-function Disclaimer() {
+function Disclaimer({children}) {
     return (
         <Container className="Disclaimer sec-level py-2">
                 <h2 className="text-danger">Warning! Read this first.</h2>
@@ -13,6 +13,7 @@ function Disclaimer() {
                     <li>If you find any error or have some feedback, please contact me. Links at the bottom.</li>
                     <li>Some datasheets may have errors. There are a lot of them so it will take some time to fix everything. Again, if you find any problem please contact me.</li>
                 </ul>
+                {children}
         </Container>
     )
 }

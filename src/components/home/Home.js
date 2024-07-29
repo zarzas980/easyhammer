@@ -122,10 +122,9 @@ function Home(){
                         <Defender/>
                     </DefenderContext.Provider>
                     <div style={{paddingBottom: "20px"}}></div>
-                    <Disclaimer/>
-                    <Container className="my-4">
+                    <Disclaimer>
                         <Button variant ="primary" onClick={handleComputeResults}><b>GET RESULTS</b></Button>
-                    </Container>
+                    </Disclaimer>
                     {showErrorMessage && <Alert variant="danger">
                         Ups! There is something wrong with the inputs!
                     </Alert>}
