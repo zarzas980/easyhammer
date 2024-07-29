@@ -60,7 +60,7 @@ function GraphsAggregated({results,typeOfResult,title}) {
         datasets.push(
             {
                 type: "bar",
-                label: weapons[index].name,
+                label: (index+1) + " " + weapons[index].name,
                 data: clone,
                 backgroundColor: colors[index]
             }
