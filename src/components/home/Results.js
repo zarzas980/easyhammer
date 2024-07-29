@@ -19,14 +19,14 @@ function Results({results,triggerPlotResults,defender,finalKilledModels}) {
     const MAX_ITERATIONS = 100000; //WARNING: this is also hardcoded in computeResults.js as maxIterations and computeWeapon()
 
     //Turns discrete data into percentage
-    function prepareSingleResult(result,maxIterations){
+    function prepareSingleResult(result,maxIterations,n){
         const preparedResults = {}
         let cumulativeProbability = 100
         const cumulativeResults = {}
             let sum = 0
             for (let [key,value] of Object.entries(result)) {
                 sum += parseInt(key)*parseInt(value)
-                const prob = value*100/maxIterations
+                const prob = value*100/(maxIterations*n) //TODO: do we wanna remove the n and have the same probability as the standalone graph?
                 preparedResults[parseInt(key)] = prob
                 cumulativeResults[parseInt(key)] = cumulativeProbability;
                 cumulativeProbability -= prob
@@ -42,7 +42,7 @@ function Results({results,triggerPlotResults,defender,finalKilledModels}) {
             const preparedWeaponResult = {}
             //typeOfResult is attackResults, hitResults, etc
             for (let [typeOfResult,value] of Object.entries(weaponResult)) {
-                preparedWeaponResult[typeOfResult] = prepareSingleResult(value,n*MAX_ITERATIONS)
+                preparedWeaponResult[typeOfResult] = prepareSingleResult(value,MAX_ITERATIONS,n)
             }
             preparedResultsArray.push(preparedWeaponResult)
         })
@@ -88,7 +88,6 @@ function Results({results,triggerPlotResults,defender,finalKilledModels}) {
     const preparedAggregatedResults = prepareResults(results.length)
     const totalAverages = getTotalAverages(preparedAggregatedResults)
     const chanceOfWipingUnit = getChanceOfWipingUnit(defender,finalKilledModels)
-    console.log(finalKilledModels)
 
     return (
         <Container fluid className="my-3">
