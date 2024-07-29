@@ -11,6 +11,8 @@ import {
     Legend
 } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import annotationPlugin from "chartjs-plugin-annotation";
+ChartJS.register(annotationPlugin);
 // ChartJS.register(
 //     defaults,
 //     CategoryScale,
@@ -33,6 +35,7 @@ function Graphs({result,stat,label}) {
                                 label: "Discrete",
                                 data: result.data,
                                 backgroundColor: "#00ADB5",
+                                xAxisID: "discrete-x",
                                 yAxisID: "discrete-y",
                                 maxBarThickness: 80,
                                 order: 2
@@ -42,9 +45,10 @@ function Graphs({result,stat,label}) {
                                 label: "Cumulative",
                                 data: result.cumulative,
                                 borderColor: "#EEEEEE",
+                                xAxisID: "discrete-x",
                                 yAxisID: "cumulative-y",
                                 order: 1
-                            }
+                            },
                         ],
                     }}
 
@@ -61,9 +65,36 @@ function Graphs({result,stat,label}) {
                             title: {
                                 display: true,
                                 text: label
+                            },                        
+                            annotation: {
+                                annotations: {
+                                    averageLine: {
+                                        type: "line",
+                                        mode: "vertical",
+                                        scaleID: "discrete-x",
+                                        value: result.avg,
+                                        borderColor: "red",
+                                        label: {
+                                          content: "Average",
+                                          enabled: true,
+                                          position: "top"
+                                        }
+                                    }
+                                }
                             },
+                            legend: {
+                                display: true,
+                                labels: {
+                                    pointStyle: "circle",
+                                    usePointStyle: true,
+                                },
+                            }
                         },
                         scales: {
+                            "discrete-x": {
+                                type: 'linear',
+                                position: "bottom",
+                            },
                             "discrete-y": {
                                 position: "left",
                             },
@@ -75,7 +106,7 @@ function Graphs({result,stat,label}) {
                         interaction: {
                             intersect: false,
                             mode: "index",
-                        }
+                        },
                     }}
                 />
                 <p className="h6">Avg {stat}: {result.avg}</p>

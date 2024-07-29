@@ -103,6 +103,13 @@ function GraphsAggregated({results,typeOfResult,title}) {
                             title: {
                                 display: true,
                                 text: title
+                            },
+                            legend: {
+                                display: true,
+                                labels: {
+                                    pointStyle: "circle",
+                                    usePointStyle: true,
+                                },
                             }
                         },
                         interaction: {
