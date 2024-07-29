@@ -35,8 +35,8 @@ function GraphsAggregated({results,typeOfResult,title}) {
     })
     
     const colors = [
-        "#EEEEEE",  // light gray
         "#00ADB5",  // cyan
+        "#EEEEEE",  // light gray
         "#FF6347",  // tomato
         "#FFD700",  // gold
         "#ADFF2F",  // green-yellow
