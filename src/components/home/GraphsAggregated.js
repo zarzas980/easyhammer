@@ -24,7 +24,7 @@ import { ResultsContext } from "./Home";
 //     Legend
 // )
 
-function GraphsAggregated({results,typeOfResult}) {
+function GraphsAggregated({results,typeOfResult,title}) {
 
     const weapons = useContext(ResultsContext)
 
@@ -102,7 +102,7 @@ function GraphsAggregated({results,typeOfResult}) {
                             },
                             title: {
                                 display: true,
-                                text: typeOfResult
+                                text: title
                             }
                         },
                         interaction: {

@@ -29,7 +29,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span>Average attacks: {totalAverages.avgAttacks.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="attackResults"/>
+                                    <GraphsAggregated results={results} typeOfResult="attackResults" title="Aggregated Attacks"/>
                                 </Col>
                             </Row>
                         </Container>
@@ -41,7 +41,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span>Average hits: {totalAverages.avgHits.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="hitResults"/>
+                                    <GraphsAggregated results={results} typeOfResult="hitResults" title="Aggregated Hits"/>
                                 </Col>
                             </Row>
                         </Container>
@@ -53,7 +53,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span>Average wounds: {totalAverages.avgWounds.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="woundResults"/>
+                                    <GraphsAggregated results={results} typeOfResult="woundResults" title="Aggregated Wounds"/>
                                 </Col>
                             </Row>
                         </Container>
@@ -65,7 +65,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span>Average failed saves: {totalAverages.avgFailedSaves.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="savesResults"/>
+                                    <GraphsAggregated results={results} typeOfResult="savesResults" title="Aggregated Saves"/>
                                 </Col>
                             </Row>
                         </Container>
@@ -78,7 +78,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span className="d-inline-block">*includes all damage before damage allocation and feel no pain.</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="totalDamage"/>
+                                    <GraphsAggregated results={results} typeOfResult="totalDamage" title="Aggregated Damage"/>
                                 </Col>
                             </Row>
                         </Container>
@@ -90,7 +90,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                                     <span>Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="killedModels"/>
+                                    <GraphsAggregated results={results} typeOfResult="killedModels" title="Aggregated Kills"/>
                                 </Col>
                             </Row>
                         </Container>
