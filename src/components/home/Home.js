@@ -63,7 +63,7 @@ function Home(){
         woundResults: {},
         savesResults: {},
         totalDamage: {},
-        killedModels: {}
+        killedModels: {},
     }
 
 
@@ -71,9 +71,11 @@ function Home(){
     //Like this consolidated = [{weapon: {}, error: {}, result: {}},...] this is an array of objects. Each object has all the data of the weapon.
     const [defender, setDefender] = useState(defaultDefender)
 
-    const [weapons, setWeapons] = useState([weaponTemplate]);
+    const [weapons, setWeapons] = useState([weaponTemplate])
 
     const [results,setResults] = useState([resultsTemplate])
+
+    const [finalKilledModels, setFinalKilledModels] = useState()
 
     const [errors, setErrors] = useState({weapons: [{}],defender: {}})
 
@@ -86,7 +88,8 @@ function Home(){
     //Computes the results after the states are updated
     useEffect(() => {
         if (triggerCompute) {
-            computeResults(weapons,defender,setResults)
+            const finalKilledModelsArray = computeResults(weapons,defender,setResults)
+            setFinalKilledModels(finalKilledModelsArray)
             setTriggerCompute(false);  // Reset the trigger
             setTriggerPlotResults(true)
           }
@@ -129,7 +132,7 @@ function Home(){
                 </Col>       
             </Row>
             <ResultsContext.Provider value={weapons}>
-                <Results results={results} triggerPlotResults={triggerPlotResults}/>
+                <Results results={results} triggerPlotResults={triggerPlotResults} defender={defender} finalKilledModels={finalKilledModels}/>
             </ResultsContext.Provider>
         </>
     )

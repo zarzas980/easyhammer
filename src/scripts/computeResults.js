@@ -3,7 +3,7 @@ function rollDie( n = 6){
 }
 
 
-function computeWeapon(weapon,index,defender,setResults,excessDamageArray) {
+function computeWeapon(weapon,index,defender,setResults,excessDamageArray,killedModelsArray) {
 
     let numOfAttacks = 0;
     let numOfHits = 0;
@@ -313,6 +313,7 @@ function computeWeapon(weapon,index,defender,setResults,excessDamageArray) {
     while(iteration<maxIterations){
 
         let excessDamage = excessDamageArray[iteration]
+
         getAttacks()
         hitRoll()
         woundRoll()
@@ -331,6 +332,7 @@ function computeWeapon(weapon,index,defender,setResults,excessDamageArray) {
         newSavesResults[numOfFailedSaves] ? newSavesResults[numOfFailedSaves] = newSavesResults[numOfFailedSaves] + 1 : newSavesResults[numOfFailedSaves] = 1
         newNumOfKilledModels[numOfKilledModels] ? newNumOfKilledModels[numOfKilledModels] = newNumOfKilledModels[numOfKilledModels] + 1 : newNumOfKilledModels[numOfKilledModels] = 1
         newTotalDmg[totalDmg] ? newTotalDmg[totalDmg] = newTotalDmg[totalDmg] + 1 : newTotalDmg[totalDmg] = 1
+        killedModelsArray[iteration] += numOfKilledModels
 
         numOfAttacks = 0;
         numOfHits = 0;
@@ -361,8 +363,10 @@ function computeResults(weapons,defender,setResults) {
 
     const maxIterations = 100000; //WARNING: this value is also hardcoded in Graphs.js getAverage() and computeWeapon
     const excessDamageArray = new Array(maxIterations).fill(0);
-    weapons.forEach((weapon,index) => computeWeapon(weapon,index,defender,setResults,excessDamageArray))
-
+    const killedModelsArray = new Array(maxIterations).fill(0);
+    weapons.forEach((weapon,index) => computeWeapon(weapon,index,defender,setResults,excessDamageArray,killedModelsArray))
+    
+    return killedModelsArray
  }
 
 export default computeResults

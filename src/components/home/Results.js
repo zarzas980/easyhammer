@@ -10,7 +10,7 @@ import GraphsAggregatedContainer from "./GraphsAggregatedContainer";
 import GraphsContainer from "./GraphsContainer";
 
 
-function Results({results,triggerPlotResults}) {
+function Results({results,triggerPlotResults,defender,finalKilledModels}) {
 
     if (!triggerPlotResults) {
         return <Container fluid className="sec-level py-2 my-3">Waiting for user input...</Container>
@@ -74,20 +74,28 @@ function Results({results,triggerPlotResults}) {
         }
     }
 
+    function getChanceOfWipingUnit(defender,finalKilledModels){
+        let succesfulWipes = 0
+        const models = defender.models
+        finalKilledModels.map(killedModels => {
+            if(killedModels>=models) succesfulWipes++
+        })
+        return succesfulWipes*100/MAX_ITERATIONS
+    }
     //TODO: Instead of doing this an alternative could be getting the aggregated results by dividing by n.
     //This could bring floating point errors?
     const preparedSingleResults = prepareResults(1)
     const preparedAggregatedResults = prepareResults(results.length)
-    console.log(preparedSingleResults)
     const totalAverages = getTotalAverages(preparedAggregatedResults)
-
+    const chanceOfWipingUnit = getChanceOfWipingUnit(defender,finalKilledModels)
+    console.log(finalKilledModels)
 
     return (
         <Container fluid className="my-3">
             {/*TODO: cambiar el número de columnas cuando todo este listo*/}
             <Row xs={1} xl={2}>
                 <Col>
-                    <GraphsAggregatedContainer results = {preparedAggregatedResults} totalAverages={totalAverages}/>
+                    <GraphsAggregatedContainer results = {preparedAggregatedResults} totalAverages={totalAverages} chanceOfWipingUnit={chanceOfWipingUnit}/>
                 </Col>
                 <Col>
                     <GraphsContainer results = {preparedSingleResults}/>

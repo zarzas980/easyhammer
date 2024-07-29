@@ -12,7 +12,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import GraphsAggregated from "./GraphsAggregated";
 
 
-function GraphsAggregatedContainer({results,totalAverages}) {
+function GraphsAggregatedContainer({results,totalAverages,chanceOfWipingUnit}) {
 
     return (
         <Container className="my-3 sec-level px-0" fluid >  
@@ -74,7 +74,7 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         <Container>
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
-                                    <span className="d-inline-block ">Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
+                                    <span className="d-inline-block">Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
                                     <span className="d-inline-block">*includes all damage before damage allocation and feel no pain.</span>
                                 </Col>
                                 <Col>
@@ -87,7 +87,8 @@ function GraphsAggregatedContainer({results,totalAverages}) {
                         <Container>
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
-                                    <span>Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
+                                    <span className="d-block">Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
+                                    <span className="d-block">Chance of wiping unit: {chanceOfWipingUnit.toFixed(2)}%</span>
                                 </Col>
                                 <Col>
                                     <GraphsAggregated results={results} typeOfResult="killedModels" title="Aggregated Kills"/>

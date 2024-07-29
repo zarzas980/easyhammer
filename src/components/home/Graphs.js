@@ -54,7 +54,6 @@ function Graphs({result,stat,label}) {
                                 callbacks: {
                                     title: function(value){return ""},
                                     label: function(value){ 
-                                        console.log(value)
                                         return value.label+": " + value.parsed.y.toFixed(2)+"%"
                                     }
                                 }
