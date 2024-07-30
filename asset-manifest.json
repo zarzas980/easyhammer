@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/easyhammer/static/css/main.63259666.css",
-    "main.js": "/easyhammer/static/js/main.38ac6d4e.js",
+    "main.css": "/easyhammer/static/css/main.1c83645f.css",
+    "main.js": "/easyhammer/static/js/main.acb70189.js",
     "static/js/597.64b27c78.chunk.js": "/easyhammer/static/js/597.64b27c78.chunk.js",
     "static/js/521.71498ebc.chunk.js": "/easyhammer/static/js/521.71498ebc.chunk.js",
     "static/js/86.65b14488.chunk.js": "/easyhammer/static/js/86.65b14488.chunk.js",
@@ -34,12 +34,12 @@
     "static/media/arrow-up.svg": "/easyhammer/static/media/arrow-up.545afa1879d8d39248e18d677902a0fb.svg",
     "static/media/plus.svg": "/easyhammer/static/media/plus.d29f43d04ec1a273784738345d024444.svg",
     "static/media/x.svg": "/easyhammer/static/media/x.756b0b9e7f46ff6ac34691db29c5323e.svg",
-    "main.63259666.css.map": "/easyhammer/static/css/main.63259666.css.map",
-    "main.38ac6d4e.js.map": "/easyhammer/static/js/main.38ac6d4e.js.map",
+    "main.1c83645f.css.map": "/easyhammer/static/css/main.1c83645f.css.map",
+    "main.acb70189.js.map": "/easyhammer/static/js/main.acb70189.js.map",
     "453.0ba83b2c.chunk.js.map": "/easyhammer/static/js/453.0ba83b2c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63259666.css",
-    "static/js/main.38ac6d4e.js"
+    "static/css/main.1c83645f.css",
+    "static/js/main.acb70189.js"
   ]
 }
