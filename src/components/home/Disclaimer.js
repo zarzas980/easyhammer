@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 
 function Disclaimer({children}) {
     return (
-        <Container className="Disclaimer sec-level py-2">
+        <Container className="Disclaimer sec-level py-2 pb-3">
                 <h2 className="text-danger">Warning! Read this first.</h2>
                 <ul className="text-start">
                     <li>This is a prototype. Some functions are not supported, such as damage reduction, special abilities and others.</li>

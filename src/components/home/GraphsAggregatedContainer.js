@@ -10,9 +10,10 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import GraphsAggregated from "./GraphsAggregated";
+import GraphsAggregatedKills from "./GraphsAggregatedKills";
 
 
-function GraphsAggregatedContainer({results,totalAverages,chanceOfWipingUnit}) {
+function GraphsAggregatedContainer({results,totalAverages,chanceOfWipingUnit,aggregatedKills}) {
 
     return (
         <Container className="my-3 sec-level px-0" fluid >  
@@ -23,75 +24,80 @@ function GraphsAggregatedContainer({results,totalAverages,chanceOfWipingUnit}) {
                     fill
                 >
                     <Tab eventKey="attackResultsTab" title="Attacks">
-                        <Container>
+                        <Container className="pb-2">
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
                                     <span>Average attacks: {totalAverages.avgAttacks.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="attackResults" title="Aggregated Attacks"/>
+                                    <GraphsAggregated results={results} typeOfResult="attackResults" title="Attacks per Weapon"/>
                                 </Col>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="hitResultsTab" title="Hits">
-                        <Container>
+                        <Container className="pb-2">
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
                                     <span>Average hits: {totalAverages.avgHits.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="hitResults" title="Aggregated Hits"/>
+                                    <GraphsAggregated results={results} typeOfResult="hitResults" title="Hits per Weapon"/>
                                 </Col>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="woundResults-tab" title="Wounds">
-                        <Container>
+                        <Container className="pb-2">
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
                                     <span>Average wounds: {totalAverages.avgWounds.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="woundResults" title="Aggregated Wounds"/>
+                                    <GraphsAggregated results={results} typeOfResult="woundResults" title="Wounds per Weapon"/>
                                 </Col>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="savesResultsTab" title="Saves">
-                        <Container>
+                        <Container className="pb-2">
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
                                     <span>Average failed saves: {totalAverages.avgFailedSaves.toFixed(2)}</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="savesResults" title="Aggregated Saves"/>
+                                    <GraphsAggregated results={results} typeOfResult="savesResults" title="Saves per Weapon"/>
                                 </Col>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="totalDamageTab" title="Damage">
-                        <Container>
+                        <Container className="pb-2">
                             <Row xs={1} xl={2} className="align-items-center text-start">
                                 <Col>
                                     <span className="d-inline-block">Average damage*: {totalAverages.avgDamage.toFixed(2)}</span>
                                     <span className="d-inline-block">*includes all damage before damage allocation and feel no pain.</span>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="totalDamage" title="Aggregated Damage"/>
+                                    <GraphsAggregated results={results} typeOfResult="totalDamage" title="Damage per Weapon"/>
                                 </Col>
                             </Row>
                         </Container>
                     </Tab>
                     <Tab eventKey="killedModelsTab" title="Kills">
-                        <Container>
-                            <Row xs={1} xl={2} className="align-items-center text-start">
+                        <Container className="pb-2">
+                            <Row xs={1} xxl={2} className="align-items-center text-start">
                                 <Col>
-                                    <span className="d-block">Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
-                                    <span className="d-block">Chance of wiping unit: {chanceOfWipingUnit.toFixed(2)}%</span>
+                                    <GraphsAggregated results={results} typeOfResult="killedModels" title="Kills per Weapon"/>
                                 </Col>
                                 <Col>
-                                    <GraphsAggregated results={results} typeOfResult="killedModels" title="Aggregated Kills"/>
+                                    <GraphsAggregatedKills result={aggregatedKills} stat="" label="Aggregated Kills"/>
+                                </Col>
+                                <Col>
+                                    <span className="d-block">Average models killed: {totalAverages.avgKilledModels.toFixed(2)}</span>
+                                </Col>
+                                <Col>
+                                    <span className="d-block">Chance of wiping unit: {chanceOfWipingUnit.toFixed(2)}%</span>
                                 </Col>
                             </Row>
                         </Container>

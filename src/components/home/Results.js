@@ -74,6 +74,7 @@ function Results({results,triggerPlotResults,defender,finalKilledModels}) {
         }
     }
 
+    //TODO: we can use the cumulative probability instead
     function getChanceOfWipingUnit(defender,finalKilledModels){
         let succesfulWipes = 0
         const models = defender.models
@@ -82,19 +83,43 @@ function Results({results,triggerPlotResults,defender,finalKilledModels}) {
         })
         return succesfulWipes*100/MAX_ITERATIONS
     }
+
+    function getAggregatedKills(finalKilledModels){
+        const aggregatedKills = {}
+        finalKilledModels.forEach(number => {
+            aggregatedKills[number] ? aggregatedKills[number] = aggregatedKills[number] + 1 : aggregatedKills[number] = 1
+        })
+        const cumulativeResults = {}
+        let cumulativeProbability = 100
+        let sum = 0
+        for (let [key,value] of Object.entries(aggregatedKills)) {
+            sum += parseInt(key)*parseInt(value)
+            const prob = value*100/(MAX_ITERATIONS)
+            aggregatedKills[key] = prob
+            cumulativeResults[parseInt(key)] = cumulativeProbability;
+            cumulativeProbability -= prob
+        }
+        return {data: aggregatedKills, cumulative: cumulativeResults, avg: sum / MAX_ITERATIONS}
+    }
+
     //TODO: Instead of doing this an alternative could be getting the aggregated results by dividing by n.
     //This could bring floating point errors?
     const preparedSingleResults = prepareResults(1)
     const preparedAggregatedResults = prepareResults(results.length)
     const totalAverages = getTotalAverages(preparedAggregatedResults)
     const chanceOfWipingUnit = getChanceOfWipingUnit(defender,finalKilledModels)
+    const aggregatedKills = getAggregatedKills(finalKilledModels)
 
     return (
         <Container fluid className="my-3">
             {/*TODO: cambiar el número de columnas cuando todo este listo*/}
             <Row xs={1} xl={2}>
                 <Col>
-                    <GraphsAggregatedContainer results = {preparedAggregatedResults} totalAverages={totalAverages} chanceOfWipingUnit={chanceOfWipingUnit}/>
+                    <GraphsAggregatedContainer  results = {preparedAggregatedResults} 
+                                                totalAverages={totalAverages} 
+                                                chanceOfWipingUnit={chanceOfWipingUnit} 
+                                                aggregatedKills={aggregatedKills}
+                    />
                 </Col>
                 <Col>
                     <GraphsContainer results = {preparedSingleResults}/>

@@ -19,7 +19,7 @@ function GraphsContainer({results}) {
 
     const renderResults = results.map((result,index) => 
             <Tab key={index} eventKey={index} title = {`${index+1} ${weapons[index].name}`}>
-                <Container>
+                <Container className="pb-2">
                     <Row xs={1} md={2}>
                         <Col>
                             <Graphs result={result.attackResults} stat = "Attacks" label="Num of Attacks"/>
