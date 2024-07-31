@@ -10,12 +10,12 @@ function Navbar() {
     <Container fluid className="accent">
     <ReactNavbar sticky="top" expand="lg" >
         <Container fluid>
-            <ReactNavbar.Brand href="#home">EasyHammer</ReactNavbar.Brand>
+            <ReactNavbar.Brand href="/easyhammer">EasyHammer</ReactNavbar.Brand>
             <ReactNavbar.Toggle aria-controls="basic-navbar-nav" />
             <ReactNavbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-                <Nav.Link href="#changelog">Changelog</Nav.Link>
-                <Nav.Link href="#link">FAQ</Nav.Link>
+                <Nav.Link href="/changelog">Changelog</Nav.Link>
+                <Nav.Link href="/faq">FAQ</Nav.Link>
             </Nav>
             </ReactNavbar.Collapse>
         </Container>
